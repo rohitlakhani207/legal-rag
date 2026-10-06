@@ -1,0 +1,159 @@
+{
+  "description": "Retrieval-only experiments (no LLM) on evaluation/questions.json, top_k=5, 35 answerable questions. Used to choose FTS_MAX_DF and RERANKER_MODEL; see README 'Ablations'.",
+  "baseline_before_tuning": {
+    "config": {
+      "fts_max_df": 1.0,
+      "reranker_model": "BAAI/bge-reranker-base"
+    },
+    "results": {
+      "vector": {
+        "retrieval_recall": 0.9,
+        "hit_rate": 0.9429,
+        "mrr": 0.869,
+        "avg_retrieval_ms": 32.6125,
+        "by_type": {
+          "cross-document": 0.5,
+          "keyword": 1.0,
+          "paraphrase": 0.9167,
+          "specific": 0.875
+        }
+      },
+      "hybrid": {
+        "retrieval_recall": 0.8571,
+        "hit_rate": 0.8857,
+        "mrr": 0.7881,
+        "avg_retrieval_ms": 35.5775,
+        "by_type": {
+          "cross-document": 0.3333,
+          "keyword": 1.0,
+          "paraphrase": 0.75,
+          "specific": 1.0
+        }
+      },
+      "hybrid_rerank": {
+        "retrieval_recall": 0.9143,
+        "hit_rate": 0.9143,
+        "mrr": 0.7952,
+        "avg_retrieval_ms": 9268.05,
+        "by_type": {
+          "cross-document": 0.3333,
+          "keyword": 1.0,
+          "paraphrase": 0.9167,
+          "specific": 1.0
+        }
+      }
+    }
+  },
+  "fts_max_df_sweep_hybrid": {
+    "1.0 (no pruning)": {
+      "retrieval_recall": 0.8571,
+      "hit_rate": 0.8857,
+      "mrr": 0.7881,
+      "avg_retrieval_ms": 35.5775,
+      "by_type": {
+        "cross-document": 0.3333,
+        "keyword": 1.0,
+        "paraphrase": 0.75,
+        "specific": 1.0
+      }
+    },
+    "0.3": {
+      "retrieval_recall": 0.9,
+      "hit_rate": 0.9429,
+      "mrr": 0.8129,
+      "avg_retrieval_ms": 32.0675,
+      "by_type": {
+        "cross-document": 0.5,
+        "keyword": 1.0,
+        "paraphrase": 0.8333,
+        "specific": 1.0
+      }
+    },
+    "0.2": {
+      "retrieval_recall": 0.9,
+      "hit_rate": 0.9429,
+      "mrr": 0.8129,
+      "avg_retrieval_ms": 35.2,
+      "by_type": {
+        "cross-document": 0.5,
+        "keyword": 1.0,
+        "paraphrase": 0.8333,
+        "specific": 1.0
+      }
+    },
+    "0.1": {
+      "retrieval_recall": 0.9,
+      "hit_rate": 0.9429,
+      "mrr": 0.7662,
+      "avg_retrieval_ms": 33.95,
+      "by_type": {
+        "cross-document": 0.5,
+        "keyword": 1.0,
+        "paraphrase": 0.8333,
+        "specific": 1.0
+      }
+    },
+    "0.05": {
+      "retrieval_recall": 0.9429,
+      "hit_rate": 0.9714,
+      "mrr": 0.7767,
+      "avg_retrieval_ms": 31.965,
+      "by_type": {
+        "cross-document": 0.6667,
+        "keyword": 1.0,
+        "paraphrase": 0.9167,
+        "specific": 1.0
+      }
+    }
+  },
+  "reranker_comparison_hybrid_rerank_fts_max_df_0.2": {
+    "Xenova/ms-marco-MiniLM-L-12-v2": {
+      "retrieval_recall": 0.9857,
+      "hit_rate": 1.0,
+      "mrr": 0.9129,
+      "avg_retrieval_ms": 3516.725,
+      "by_type": {
+        "cross-document": 0.8333,
+        "keyword": 1.0,
+        "paraphrase": 1.0,
+        "specific": 1.0
+      }
+    },
+    "BAAI/bge-reranker-base": {
+      "retrieval_recall": 0.9286,
+      "hit_rate": 0.9429,
+      "mrr": 0.8,
+      "avg_retrieval_ms": 9945.13,
+      "by_type": {
+        "cross-document": 0.5,
+        "keyword": 1.0,
+        "paraphrase": 0.9167,
+        "specific": 1.0
+      }
+    },
+    "jinaai/jina-reranker-v1-turbo-en": {
+      "retrieval_recall": 0.8714,
+      "hit_rate": 0.8857,
+      "mrr": 0.8095,
+      "avg_retrieval_ms": 2085.3025,
+      "by_type": {
+        "cross-document": 0.5,
+        "keyword": 1.0,
+        "paraphrase": 0.75,
+        "specific": 1.0
+      }
+    },
+    "jinaai/jina-reranker-v1-tiny-en": {
+      "retrieval_recall": 0.8857,
+      "hit_rate": 0.9143,
+      "mrr": 0.7724,
+      "avg_retrieval_ms": 1324.97,
+      "by_type": {
+        "cross-document": 0.3333,
+        "keyword": 1.0,
+        "paraphrase": 0.8333,
+        "specific": 1.0
+      }
+    }
+  }
+}

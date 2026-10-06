@@ -1,0 +1,15 @@
+# Use an Ollama server that already runs on the host instead of the bundled container
+# (saves re-downloading models). The host Ollama must listen beyond loopback:
+#   sudo systemctl edit ollama  ->  [Service] Environment="OLLAMA_HOST=0.0.0.0"
+#
+#   docker compose -f docker-compose.yml -f docker-compose.host-ollama.yml up --build
+services:
+  ollama:
+    profiles: ["bundled-ollama"]
+  ollama-pull:
+    profiles: ["bundled-ollama"]
+  api:
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

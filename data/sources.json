@@ -1,0 +1,22 @@
+[
+  {
+    "id": "gdpr",
+    "title": "Regulation (EU) 2016/679 — General Data Protection Regulation",
+    "short_name": "GDPR",
+    "jurisdiction": "EU",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+    "filename": "gdpr.html",
+    "parser": "eurlex_html",
+    "license": "© European Union, https://eur-lex.europa.eu/. Reuse authorised under Commission Decision 2011/833/EU."
+  },
+  {
+    "id": "dpdp",
+    "title": "Digital Personal Data Protection Act, 2023 (India, No. 22 of 2023)",
+    "short_name": "DPDP Act",
+    "jurisdiction": "IN",
+    "url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+    "filename": "dpdp_act_2023.pdf",
+    "parser": "india_gazette_pdf",
+    "license": "Act of Parliament published in the Gazette of India; reproduction permitted under s. 52(1)(q) of the Copyright Act, 1957."
+  }
+]

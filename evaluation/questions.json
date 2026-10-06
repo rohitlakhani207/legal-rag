@@ -1,0 +1,333 @@
+{
+  "description": "Evaluation set for the Legal RAG corpus (GDPR + India DPDP Act 2023). 'gold' lists the provisions needed to answer; 'acceptable' lists provisions that are also legitimate to cite; 'evidence' quotes text that must appear in the gold provision (checked by backend/tests/test_questions.py). Unanswerable questions have no gold and the system should abstain.",
+  "questions": [
+    {
+      "id": "gdpr-01",
+      "type": "specific",
+      "question": "Within how many hours must a controller notify the supervisory authority of a personal data breach?",
+      "gold": [{"doc": "gdpr", "section": "Article 33"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 33", "quote": "not later than 72 hours after having become aware of it"}],
+      "reference_answer": "Without undue delay and, where feasible, not later than 72 hours after becoming aware of it; later notifications must be accompanied by reasons for the delay."
+    },
+    {
+      "id": "gdpr-02",
+      "type": "paraphrase",
+      "question": "When does a company have to tell the affected people themselves that their data was leaked?",
+      "gold": [{"doc": "gdpr", "section": "Article 34"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 34", "quote": "likely to result in a high risk to the rights and freedoms of natural persons"}],
+      "reference_answer": "When the breach is likely to result in a high risk to individuals' rights and freedoms, the controller must communicate it to the data subject without undue delay, subject to the exceptions in Article 34(3)."
+    },
+    {
+      "id": "gdpr-03",
+      "type": "paraphrase",
+      "question": "On what grounds can I demand that a company deletes everything it holds about me?",
+      "gold": [{"doc": "gdpr", "section": "Article 17"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 17", "quote": "the right to obtain from the controller the erasure of personal data concerning him or her without undue delay"}],
+      "reference_answer": "Under the right to erasure, e.g. when the data are no longer necessary, consent is withdrawn, the data subject objects, the data were unlawfully processed, or erasure is legally required."
+    },
+    {
+      "id": "gdpr-04",
+      "type": "specific",
+      "question": "What is the maximum administrative fine for infringing the basic principles for processing, including conditions for consent?",
+      "gold": [{"doc": "gdpr", "section": "Article 83"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 83", "quote": "up to 20 000 000 EUR, or in the case of an undertaking, up to 4 % of the total worldwide annual turnover"}],
+      "reference_answer": "Up to EUR 20 million or, for an undertaking, up to 4% of total worldwide annual turnover of the preceding financial year, whichever is higher."
+    },
+    {
+      "id": "gdpr-05",
+      "type": "keyword",
+      "question": "What are the lawful bases for processing personal data under the GDPR?",
+      "gold": [{"doc": "gdpr", "section": "Article 6"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 6", "quote": "processing is necessary for the performance of a contract to which the data subject is party"}],
+      "reference_answer": "Consent, contract, legal obligation, vital interests, public task, and legitimate interests."
+    },
+    {
+      "id": "gdpr-06",
+      "type": "keyword",
+      "question": "What must a data protection impact assessment contain at a minimum?",
+      "gold": [{"doc": "gdpr", "section": "Article 35"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 35", "quote": "a systematic description of the envisaged processing operations"}],
+      "reference_answer": "A systematic description of the processing and its purposes, an assessment of necessity and proportionality, an assessment of risks to data subjects, and the measures envisaged to address those risks."
+    },
+    {
+      "id": "gdpr-07",
+      "type": "paraphrase",
+      "question": "In which situations is an organisation obliged to appoint a data protection officer?",
+      "gold": [{"doc": "gdpr", "section": "Article 37"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 37", "quote": "regular and systematic monitoring of data subjects on a large scale"}],
+      "reference_answer": "When processing is carried out by a public authority, when core activities require regular and systematic monitoring of data subjects on a large scale, or when core activities consist of large-scale processing of special categories or criminal-conviction data."
+    },
+    {
+      "id": "gdpr-08",
+      "type": "specific",
+      "question": "From what age can a child consent on their own to information society services under the GDPR?",
+      "gold": [{"doc": "gdpr", "section": "Article 8"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 8", "quote": "at least 16 years old"}],
+      "reference_answer": "16, though Member States may set a lower age not below 13; below that age consent must be given or authorised by the holder of parental responsibility."
+    },
+    {
+      "id": "gdpr-09",
+      "type": "keyword",
+      "question": "Which categories of personal data are treated as special categories whose processing is prohibited by default?",
+      "gold": [{"doc": "gdpr", "section": "Article 9"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 9", "quote": "revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership"}],
+      "reference_answer": "Data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for unique identification, health data, and data concerning sex life or sexual orientation."
+    },
+    {
+      "id": "gdpr-10",
+      "type": "paraphrase",
+      "question": "Can a bank reject my loan application purely through an algorithm without any human involvement?",
+      "gold": [{"doc": "gdpr", "section": "Article 22"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 22", "quote": "not to be subject to a decision based solely on automated processing, including profiling"}],
+      "reference_answer": "Generally no: data subjects have the right not to be subject to solely automated decisions with legal or similarly significant effects, unless necessary for a contract, authorised by law, or based on explicit consent, with safeguards such as the right to obtain human intervention."
+    },
+    {
+      "id": "gdpr-11",
+      "type": "paraphrase",
+      "question": "Can I get my data from one online service in a machine-readable format and move it to a competitor?",
+      "gold": [{"doc": "gdpr", "section": "Article 20"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 20", "quote": "structured, commonly used and machine-readable format"}],
+      "reference_answer": "Yes, under the right to data portability where processing is based on consent or contract and carried out by automated means, including direct transmission between controllers where technically feasible."
+    },
+    {
+      "id": "gdpr-12",
+      "type": "specific",
+      "question": "How long does a controller have to respond to a data subject's request, and can that period be extended?",
+      "gold": [{"doc": "gdpr", "section": "Article 12"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 12", "quote": "within one month of receipt of the request"}],
+      "reference_answer": "Without undue delay and in any event within one month of receipt; extendable by two further months where necessary, taking into account complexity and number of requests, with the data subject informed of the extension within the first month."
+    },
+    {
+      "id": "gdpr-13",
+      "type": "keyword",
+      "question": "What must a contract between a controller and a processor stipulate?",
+      "gold": [{"doc": "gdpr", "section": "Article 28"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 28", "quote": "processes the personal data only on documented instructions from the controller"}],
+      "reference_answer": "Among other things, that the processor acts only on documented instructions, ensures confidentiality, implements Article 32 security, respects sub-processor conditions, assists the controller, deletes or returns data at the end, and makes information available for audits."
+    },
+    {
+      "id": "gdpr-14",
+      "type": "specific",
+      "question": "Are small companies with fewer than 250 employees exempt from keeping records of processing activities?",
+      "gold": [{"doc": "gdpr", "section": "Article 30"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 30", "quote": "employing fewer than 250 persons"}],
+      "reference_answer": "Partly: the obligation does not apply to organisations with fewer than 250 employees unless the processing is likely to result in a risk, is not occasional, or includes special categories or criminal-conviction data."
+    },
+    {
+      "id": "gdpr-15",
+      "type": "paraphrase",
+      "question": "Under what condition can personal data be sent to a non-EU country without any specific authorisation?",
+      "gold": [{"doc": "gdpr", "section": "Article 45"}],
+      "acceptable": [{"doc": "gdpr", "section": "Article 44"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 45", "quote": "ensures an adequate level of protection"}],
+      "reference_answer": "When the Commission has decided that the third country, territory, sector or international organisation ensures an adequate level of protection (an adequacy decision)."
+    },
+    {
+      "id": "gdpr-16",
+      "type": "keyword",
+      "question": "What does data protection by design and by default require from controllers?",
+      "gold": [{"doc": "gdpr", "section": "Article 25"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 25", "quote": "such as pseudonymisation, which are designed to implement data-protection principles, such as data minimisation"}],
+      "reference_answer": "Implementing appropriate technical and organisational measures (e.g. pseudonymisation) to apply data-protection principles effectively, and ensuring that by default only personal data necessary for each specific purpose are processed."
+    },
+    {
+      "id": "gdpr-17",
+      "type": "keyword",
+      "question": "What are the principles relating to processing of personal data, such as purpose limitation and storage limitation?",
+      "gold": [{"doc": "gdpr", "section": "Article 5"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 5", "quote": "‘storage limitation’"}],
+      "reference_answer": "Lawfulness, fairness and transparency; purpose limitation; data minimisation; accuracy; storage limitation; integrity and confidentiality; and accountability."
+    },
+    {
+      "id": "gdpr-18",
+      "type": "paraphrase",
+      "question": "Does the GDPR apply to a US company with no EU office that tracks the online behaviour of people in Europe?",
+      "gold": [{"doc": "gdpr", "section": "Article 3"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 3", "quote": "the monitoring of their behaviour as far as their behaviour takes place within the Union"}],
+      "reference_answer": "Yes. Under its territorial scope the GDPR applies to controllers not established in the Union where processing relates to monitoring the behaviour of data subjects in the Union."
+    },
+    {
+      "id": "gdpr-19",
+      "type": "keyword",
+      "question": "Which technical measures, such as encryption, does the GDPR list for ensuring the security of processing?",
+      "gold": [{"doc": "gdpr", "section": "Article 32"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 32", "quote": "the pseudonymisation and encryption of personal data"}],
+      "reference_answer": "Pseudonymisation and encryption; ensuring ongoing confidentiality, integrity, availability and resilience; the ability to restore availability after an incident; and regular testing and evaluation of measures."
+    },
+    {
+      "id": "gdpr-20",
+      "type": "paraphrase",
+      "question": "If a company's mishandling of my personal data caused me financial or emotional harm, can I get compensation?",
+      "gold": [{"doc": "gdpr", "section": "Article 82"}],
+      "evidence": [{"doc": "gdpr", "section": "Article 82", "quote": "material or non-material damage"}],
+      "reference_answer": "Yes. Any person who has suffered material or non-material damage as a result of an infringement has the right to receive compensation from the controller or processor."
+    },
+    {
+      "id": "dpdp-01",
+      "type": "keyword",
+      "question": "Under India's DPDP Act, what must a Data Fiduciary do when a personal data breach occurs?",
+      "gold": [{"doc": "dpdp", "section": "Section 8"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 8", "quote": "shall give the Board and each affected Data Principal, intimation of such breach"}],
+      "reference_answer": "It must give the Data Protection Board and each affected Data Principal intimation of the breach in the prescribed form and manner."
+    },
+    {
+      "id": "dpdp-02",
+      "type": "specific",
+      "question": "What is the maximum penalty under the DPDP Act for failing to take reasonable security safeguards to prevent a personal data breach?",
+      "gold": [{"doc": "dpdp", "section": "Schedule"}],
+      "acceptable": [{"doc": "dpdp", "section": "Section 33"}],
+      "evidence": [{"doc": "dpdp", "section": "Schedule", "quote": "May extend to two hundred and fifty crore rupees"}],
+      "reference_answer": "A penalty that may extend to two hundred and fifty crore rupees."
+    },
+    {
+      "id": "dpdp-03",
+      "type": "specific",
+      "question": "Up to what age is a person treated as a child under the Digital Personal Data Protection Act, 2023?",
+      "gold": [{"doc": "dpdp", "section": "Section 2"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 2", "quote": "“child” means an individual who has not completed the age of eighteen years"}],
+      "reference_answer": "An individual who has not completed eighteen years of age."
+    },
+    {
+      "id": "dpdp-04",
+      "type": "paraphrase",
+      "question": "What does an Indian app need before it can process personal data of kids, and what is it forbidden from doing with that data?",
+      "gold": [{"doc": "dpdp", "section": "Section 9"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 9", "quote": "obtain verifiable consent of the parent of such child"}],
+      "reference_answer": "Verifiable consent of the parent or lawful guardian; it must not process data in a way likely to harm the child's well-being, nor undertake tracking, behavioural monitoring or targeted advertising directed at children."
+    },
+    {
+      "id": "dpdp-05",
+      "type": "keyword",
+      "question": "What are the requirements for valid consent under the DPDP Act?",
+      "gold": [{"doc": "dpdp", "section": "Section 6"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 6", "quote": "free, specific, informed, unconditional and unambiguous with a clear affirmative action"}],
+      "reference_answer": "Consent must be free, specific, informed, unconditional and unambiguous with a clear affirmative action, limited to data necessary for the specified purpose, and withdrawable as easily as it was given."
+    },
+    {
+      "id": "dpdp-06",
+      "type": "keyword",
+      "question": "What information must the notice to a Data Principal contain when consent is requested under the DPDP Act?",
+      "gold": [{"doc": "dpdp", "section": "Section 5"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 5", "quote": "the personal data and the purpose for which the same is proposed to be processed"}],
+      "reference_answer": "The personal data and purpose of processing, how to exercise rights under section 6(4) and section 13, and how to complain to the Board."
+    },
+    {
+      "id": "dpdp-07",
+      "type": "paraphrase",
+      "question": "What obligations do individuals themselves have when exercising their data rights under Indian law, for example around false complaints?",
+      "gold": [{"doc": "dpdp", "section": "Section 15"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 15", "quote": "not to register a false or frivolous grievance or complaint"}],
+      "reference_answer": "Data Principals must comply with applicable law, not impersonate others, not suppress material information when providing data for official documents, not register false or frivolous grievances, and furnish only verifiably authentic information when seeking correction or erasure."
+    },
+    {
+      "id": "dpdp-08",
+      "type": "keyword",
+      "question": "For which certain legitimate uses can a Data Fiduciary process personal data without consent under the DPDP Act?",
+      "gold": [{"doc": "dpdp", "section": "Section 7"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 7", "quote": "for any of following uses"}],
+      "reference_answer": "Including where the Data Principal voluntarily provided data for a specified purpose without objecting, State functions such as subsidies and benefits, legal obligations, court judgments, medical emergencies, epidemics, disasters, and employment purposes."
+    },
+    {
+      "id": "dpdp-09",
+      "type": "paraphrase",
+      "question": "Can an Indian company send customer personal data to servers abroad?",
+      "gold": [{"doc": "dpdp", "section": "Section 16"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 16", "quote": "restrict the transfer of personal data by a Data Fiduciary for processing to such country or territory outside India"}],
+      "reference_answer": "Yes, except to countries or territories the Central Government restricts by notification; laws providing a higher degree of protection or restriction continue to apply."
+    },
+    {
+      "id": "dpdp-10",
+      "type": "keyword",
+      "question": "What additional obligations apply to a Significant Data Fiduciary?",
+      "gold": [{"doc": "dpdp", "section": "Section 10"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 10", "quote": "appoint an independent data auditor"}],
+      "reference_answer": "Appointing a Data Protection Officer based in India, appointing an independent data auditor, and undertaking periodic Data Protection Impact Assessments and audits, among other prescribed measures."
+    },
+    {
+      "id": "dpdp-11",
+      "type": "specific",
+      "question": "Where and within how many days can a person appeal against an order of the Data Protection Board of India?",
+      "gold": [{"doc": "dpdp", "section": "Section 29"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 29", "quote": "within a period of sixty days"}],
+      "reference_answer": "To the Appellate Tribunal (TDSAT) within sixty days from receipt of the order, which may be extended if there was sufficient cause for the delay."
+    },
+    {
+      "id": "dpdp-12",
+      "type": "paraphrase",
+      "question": "Does the Indian data protection law cover personal information that someone has posted publicly on social media themselves?",
+      "gold": [{"doc": "dpdp", "section": "Section 3"}],
+      "evidence": [{"doc": "dpdp", "section": "Section 3", "quote": "while blogging her views, has publicly made available her personal data on social media"}],
+      "reference_answer": "No. The Act does not apply to personal data that the Data Principal has made, or caused to be made, publicly available."
+    },
+    {
+      "id": "cross-01",
+      "type": "cross-document",
+      "question": "How do the GDPR and India's DPDP Act differ on the deadline for reporting a personal data breach to the regulator?",
+      "gold": [{"doc": "gdpr", "section": "Article 33"}, {"doc": "dpdp", "section": "Section 8"}],
+      "evidence": [
+        {"doc": "gdpr", "section": "Article 33", "quote": "72 hours"},
+        {"doc": "dpdp", "section": "Section 8", "quote": "in such form and manner as may be prescribed"}
+      ],
+      "reference_answer": "The GDPR sets a 72-hour deadline where feasible; the DPDP Act requires intimation to the Board and affected Data Principals but leaves form and manner to be prescribed by rules rather than fixing a deadline in the Act."
+    },
+    {
+      "id": "cross-02",
+      "type": "cross-document",
+      "question": "Compare the age below which parental consent is needed for children's data under the GDPR and the DPDP Act.",
+      "gold": [{"doc": "gdpr", "section": "Article 8"}, {"doc": "dpdp", "section": "Section 2"}],
+      "acceptable": [{"doc": "dpdp", "section": "Section 9"}],
+      "evidence": [
+        {"doc": "gdpr", "section": "Article 8", "quote": "16 years"},
+        {"doc": "dpdp", "section": "Section 2", "quote": "eighteen years"}
+      ],
+      "reference_answer": "GDPR: below 16 for information society services (Member States may lower to 13). DPDP Act: a child is anyone under 18, and verifiable parental consent is required."
+    },
+    {
+      "id": "cross-03",
+      "type": "cross-document",
+      "question": "What are the highest monetary penalties under the GDPR and under India's DPDP Act?",
+      "gold": [{"doc": "gdpr", "section": "Article 83"}, {"doc": "dpdp", "section": "Schedule"}],
+      "acceptable": [{"doc": "dpdp", "section": "Section 33"}],
+      "evidence": [
+        {"doc": "gdpr", "section": "Article 83", "quote": "4 % of the total worldwide annual turnover"},
+        {"doc": "dpdp", "section": "Schedule", "quote": "two hundred and fifty crore rupees"}
+      ],
+      "reference_answer": "GDPR: up to EUR 20 million or 4% of worldwide annual turnover, whichever is higher. DPDP Act: up to 250 crore rupees (for failing to take reasonable security safeguards)."
+    },
+    {
+      "id": "neg-01",
+      "type": "unanswerable",
+      "question": "What is the statute of limitations for a breach of contract claim in California?",
+      "gold": [],
+      "reference_answer": "Not covered by the corpus; the system should abstain."
+    },
+    {
+      "id": "neg-02",
+      "type": "unanswerable",
+      "question": "What are the formal requirements for a valid will under English law?",
+      "gold": [],
+      "reference_answer": "Not covered by the corpus; the system should abstain."
+    },
+    {
+      "id": "neg-03",
+      "type": "unanswerable",
+      "question": "What is the corporate income tax rate for domestic companies in India?",
+      "gold": [],
+      "reference_answer": "Not covered by the corpus; the system should abstain."
+    },
+    {
+      "id": "neg-04",
+      "type": "unanswerable",
+      "question": "How many weeks of paid maternity leave are employees entitled to in the EU?",
+      "gold": [],
+      "reference_answer": "Not covered by the corpus; the system should abstain."
+    },
+    {
+      "id": "neg-05",
+      "type": "unanswerable",
+      "question": "What is the maximum prison sentence for copyright infringement under US federal law?",
+      "gold": [],
+      "reference_answer": "Not covered by the corpus; the system should abstain."
+    }
+  ]
+}

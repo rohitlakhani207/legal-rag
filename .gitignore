@@ -1,0 +1,21 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Raw downloads are reproducible via `python -m app.ingestion download`; the parsed corpus is committed.
+data/raw/*
+!data/raw/.gitkeep
+
+# Keep only the published benchmark run; experiments and checkpoints stay local.
+evaluation/results/*
+!evaluation/results/.gitkeep
+!evaluation/results/latest.json
+!evaluation/results/report.md
+!evaluation/results/ablations.json
+
+.idea/
+.vscode/
+.DS_Store
